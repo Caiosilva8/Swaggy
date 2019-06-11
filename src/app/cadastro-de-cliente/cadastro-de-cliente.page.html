@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>CadastroDeCliente</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Nome</ion-label>
+        <ion-input formControlName="nome" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-input formControlName="email" type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>Senha</ion-label>
+            <ion-input formControlName="senha" type="password"></ion-input>
+          </ion-item>
+    </ion-list>
+    <ion-button expand="full" type="submit" fill="outline" color="dark" (click)="cadastrar()">Cadastrar</ion-button>
+  </form>
+</ion-content>

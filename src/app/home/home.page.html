@@ -1,0 +1,72 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Login
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+<!-- Segment with anchors -->
+<ion-segment>
+    <ion-segment-button (click)="proximo()">
+      <ion-label>Login</ion-label>
+    </ion-segment-button>
+    <ion-segment-button (click)="anterior()">
+      <ion-label>Cadastro</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="logo">
+    <img src="../../assets/img/Logo.png">  
+  </div>
+  
+
+  <!-- 
+  <ion-button (click)="proximo()">Teste</ion-button>
+  <ion-button (click)="anterior()">Teste</ion-button>
+  -->
+
+  <ion-slides pager="false" [options]="slideOpts" >
+    <ion-slide>
+      <div>
+        <span>Cadastro</span>
+
+        <ion-item>
+          <ion-label class="">E-mail</ion-label>
+          <ion-input type="text" value="" #email1></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label fixed>Senha</ion-label>
+          <ion-input type="password" value="" #senha1></ion-input>
+        </ion-item>
+
+        <ion-button color="primary" (click)="cadastrar()" fill="outline" color="dark">Cadastrar</ion-button>
+      </div>
+
+    </ion-slide>
+    <ion-slide>
+        <div>
+            <span>Login</span>
+  
+            <ion-item>
+                <ion-label class="">E-mail</ion-label>
+                <ion-input type="text" value="" #email></ion-input>
+            </ion-item>
+  
+            <ion-item>
+                <ion-label fixed>Senha</ion-label>
+                <ion-input type="password" value="" #senha></ion-input>
+            </ion-item>
+  
+            <ion-button color="primary" (click)="logar()" fill="outline" color="dark">Entrar</ion-button>
+  
+          </div>
+    </ion-slide>
+ 
+  </ion-slides>
+
+
+</ion-content>

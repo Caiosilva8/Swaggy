@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Novo Produto</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="cadastrarP()">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nome Produto</ion-label>
+        <ion-input formControlName="nomeProduto" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Preço</ion-label>
+        <ion-input formControlName="preco" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Categoria</ion-label>
+        <ion-input formControlName="categoria" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label floating>Descrição</ion-label>
+        <ion-input formControlName="descricao" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button color="dark" outline>Cadastrar</ion-button>
+  </form>
+</ion-content>

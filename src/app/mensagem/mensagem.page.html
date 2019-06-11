@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Cadastro de Mensagem</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="formGroup" (ngSubmit)="cadastrar()">
+    <ion-list>
+      <ion-item>
+        <ion-label>Título</ion-label>
+        <ion-input formControlName="titulo" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Texto</ion-label>
+        <ion-input formControlName="texto" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Data</ion-label>
+        <ion-input formControlName="data" type="text"></ion-input>
+      </ion-item>
+    </ion-list>
+    <ion-button expand="full" type="submit" fill="outline" color="dark" (click)="cadastrar()">Cadastrar</ion-button>
+  </form>
+</ion-content>

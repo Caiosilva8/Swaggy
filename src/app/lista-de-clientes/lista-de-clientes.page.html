@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista De Clientes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let cliente of listaDeClientes" >
+    <ion-card-header>
+        <ion-card-title>{{cliente.email}}</ion-card-title>
+      <ion-card-subtitle>{{cliente.senha}}</ion-card-subtitle>
+      
+    </ion-card-header>
+  
+    <ion-card-content>
+     {{cliente.nome}}
+    </ion-card-content>
+
+
+  <ion-icon name="share-alt" size="large" (click)="viewCliente(cliente)"></ion-icon>
+  <ion-icon name="trash" size="large" (click)="remove(cliente)"></ion-icon>
+
+</ion-card>
+
+
+</ion-content>

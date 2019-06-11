@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Carrinho</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngFor="let pedido of pedido.itens">
+    <ion-card-header>
+      <ion-card-title>{{pedido?.produto.nomeProduto}}</ion-card-title>
+      <ion-card-subtitle>R$ {{pedido?.produto.preco}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{pedido?.produto.descricao}}</p>
+      <p>{{pedido?.produto.categoria}}</p>
+    </ion-card-content>
+
+    <ion-icon name="trash" (click)="removeCar(pedido?.produto)" size="large"></ion-icon>
+
+  </ion-card>
+</ion-content>

@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Lista De Produtos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <!-- fab placed to the top end -->
+  <ion-fab vertical="top" horizontal="end" slot="fixed">
+      <ion-fab-button>
+        <ion-icon name="cart"></ion-icon>
+        <ion-badge color="primary">{{pedido.itens.length}}</ion-badge>
+      </ion-fab-button>
+    </ion-fab>
+
+  <ion-card *ngFor="let produto of listaDeProdutos">
+    <ion-card-header>
+      <ion-card-title>{{produto?.nomeProduto}}</ion-card-title>
+      <ion-card-subtitle>R$ {{produto?.preco}}</ion-card-subtitle>
+    </ion-card-header>
+    <ion-card-content>
+      <p>{{produto?.descricao}}</p>
+      <p>{{produto?.categoria}}</p>
+    </ion-card-content>
+    <ion-button fill="outline" slot="end" (click)="addCarrinho(produto)">Adicionar</ion-button>
+    <ion-icon name="share-alt" size="large" (click)="viewProduto(Produto)"></ion-icon>
+    <ion-icon name="trash" size="large" (click)="remove(produto)"></ion-icon>
+  </ion-card>
+</ion-content>

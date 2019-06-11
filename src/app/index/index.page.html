@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar>
+      <ion-icon name="menu" size="large" id="menu"></ion-icon>
+      <ion-icon name="cart" size="large" id="market"></ion-icon>
+    <img src="../../assets/img/Logo.png" height="100" width="100" class="icon">
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  
+  <ion-slides pager="true" autoplay="true" [options]="slideOpts" >
+    <ion-slide>
+      <ion-img src="../../assets/img/f.jpg"></ion-img>
+    </ion-slide>
+    <ion-slide>
+      <ion-img src="../../assets/img/e.jpg"></ion-img>
+    </ion-slide>
+    <ion-slide>
+        <ion-img src="../../assets/img/d.jpg"></ion-img>
+      </ion-slide>
+  </ion-slides>
+
+  <ion-item>
+    <ion-label>
+      Bem vindo a nossa loja!
+    </ion-label>
+    <ion-icon name="information-circle" slot="end"></ion-icon>
+  </ion-item>
+
+  <ion-card *ngFor="let item of [].constructor(5)">
+    <ion-card-header>
+      <img src="../../assets/img/lançamento2.jpg" class="aa">
+      <ion-card-title>Tênis Oakley</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods.
+      Wash your spirit clean.
+    </ion-card-content>
+    <ion-button fill="outline" slot="end">Adicionar</ion-button>
+  </ion-card>
+
+   <ion-footer>
+    <ion-toolbar>
+      <b>Swaggy Multimarcas ©</b>
+    </ion-toolbar>
+  </ion-footer>
+
+</ion-content>
