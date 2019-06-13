@@ -2,10 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import * as firebase from 'firebase';
 import { Produto } from '../model/produto';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { StorageService } from '../service/storage.service';
 import { Pedido } from '../model/pedido';
 import { Item } from '../model/item';
+import { FormGroup } from '@angular/forms';
 
 
 @Component({
@@ -16,15 +17,18 @@ import { Item } from '../model/item';
 export class ListaDeProdutosPage implements OnInit {
 
   listaDeProdutos : Produto[] = [];
+  id : string;
 
   firestore = firebase.firestore();
   settings = {timestampsInSnapshots: true};
 
   pedido : Pedido;
+  formGroup  : FormGroup;
 
   constructor(public router: Router,
               public loadingController: LoadingController,
-              public storageServ : StorageService) {
+              public storageServ : StorageService,
+              public toastController : ToastController) {
  }
 
   ngOnInit() {
@@ -55,13 +59,13 @@ export class ListaDeProdutosPage implements OnInit {
     this.storageServ.setCart(this.pedido);
   }
 
-  viewProduto(obj : Produto){
+  atualizar(obj : Produto){
     this.router.navigate(['/produto-view', {'produto' : obj.id}]);
   }
 
   getList(){
     this.loading();
-    var ref = firebase.firestore().collection("Produto");
+    var ref = firebase.firestore().collection("produto");
     ref.get().then(query=>{
       query.forEach(doc=>{
         let c = new Produto();
@@ -85,8 +89,6 @@ export class ListaDeProdutosPage implements OnInit {
         console.log('Erro ao atualizar');
       })
   }
-
-  
 
   async loading() {
     const loading = await this.loadingController.create({

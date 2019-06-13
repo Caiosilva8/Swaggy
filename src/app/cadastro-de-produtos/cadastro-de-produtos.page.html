@@ -5,6 +5,9 @@
 </ion-header>
 
 <ion-content>
+
+
+
   <form [formGroup]="formGroup">
     <ion-list>
       <ion-item>
@@ -12,17 +15,17 @@
         <ion-input formControlName="nomeProduto" type="text"></ion-input>
       </ion-item>
       <ion-item>
-          <ion-label>Descrição</ion-label>
-          <ion-input formControlName="descricao" type="text"></ion-input>
-        </ion-item>
-        <ion-item>
-            <ion-label>Preço</ion-label>
-            <ion-input formControlName="preco" type="text"></ion-input>
-          </ion-item>
-          <ion-item>
-            <ion-label>Categoria</ion-label>
-            <ion-input formControlName="categoria" type="text"></ion-input>
-          </ion-item>
+        <ion-label>Descrição</ion-label>
+        <ion-input formControlName="descricao" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Preço</ion-label>
+        <ion-input formControlName="preco" type="text"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>Categoria</ion-label>
+        <ion-input formControlName="categoria" type="text"></ion-input>
+      </ion-item>
     </ion-list>
     <ion-button expand="full" type="submit" fill="outline" color="dark" (click)="cadastrar()">Cadastrar</ion-button>
   </form>

@@ -1,14 +1,14 @@
 <ion-header>
   <ion-toolbar>
-      <ion-icon name="menu" size="large" id="menu"></ion-icon>
-      <ion-icon name="cart" size="large" id="market"></ion-icon>
+    <ion-icon name="menu" size="large" id="menu"></ion-icon>
+    <ion-icon name="cart" size="large" id="market"></ion-icon>
     <img src="../../assets/img/Logo.png" height="100" width="100" class="icon">
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  
-  <ion-slides pager="true" autoplay="true" [options]="slideOpts" >
+
+  <ion-slides pager="true" autoplay="true" [options]="slideOpts">
     <ion-slide>
       <ion-img src="../../assets/img/f.jpg"></ion-img>
     </ion-slide>
@@ -16,9 +16,27 @@
       <ion-img src="../../assets/img/e.jpg"></ion-img>
     </ion-slide>
     <ion-slide>
-        <ion-img src="../../assets/img/d.jpg"></ion-img>
-      </ion-slide>
+      <ion-img src="../../assets/img/d.jpg"></ion-img>
+    </ion-slide>
   </ion-slides>
+
+  <ion-list>
+      <ion-item>
+        <ion-label>Pokémon Yellow</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Mega Man X</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>The Legend of Zelda</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Pac-Man</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label>Super Mario World</ion-label>
+      </ion-item>
+    </ion-list>
 
   <ion-item>
     <ion-label>
@@ -39,7 +57,19 @@
     <ion-button fill="outline" slot="end">Adicionar</ion-button>
   </ion-card>
 
-   <ion-footer>
+  <!-- fab placed in the center of the content with a list on each side -->
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed" id="fab">
+    <ion-fab-button>
+      <ion-icon name="share"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+        <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
+        <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
+        <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
+      </ion-fab-list>
+  </ion-fab>
+
+  <ion-footer>
     <ion-toolbar>
       <b>Swaggy Multimarcas ©</b>
     </ion-toolbar>

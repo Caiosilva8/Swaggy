@@ -1,0 +1,1 @@
+{"version":3,"file":"mensagem.js","sourceRoot":"","sources":["../../../../../src/app/model/mensagem.ts"],"names":[],"mappings":"AAAA;IAMI;IACA,CAAC;IAED,2BAAQ,GAAR,UAAS,GAAS;QACd,IAAI,CAAC,MAAM,GAAG,GAAG,CAAC,MAAM,CAAC;QACzB,IAAI,CAAC,KAAK,GAAG,GAAG,CAAC,KAAK,CAAC;QACvB,IAAI,CAAC,IAAI,GAAG,GAAG,CAAC,IAAI,CAAC;IACzB,CAAC;IACL,eAAC;AAAD,CAAC,AAdD,IAcC"}
