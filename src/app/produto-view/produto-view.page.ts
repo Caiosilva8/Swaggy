@@ -1,4 +1,4 @@
-import { NavController, ToastController } from '@ionic/angular';
+import { NavController, ToastController, LoadingController } from '@ionic/angular';
 import { Component, OnInit } from '@angular/core';
 
 import { Produto } from '../model/produto';
@@ -24,7 +24,8 @@ export class ProdutoViewPage implements OnInit {
               public formBuilder : FormBuilder,
               public router : Router,
               public nav : NavController,
-              public toastController : ToastController) {
+              public toastController : ToastController,
+              public loadingController : LoadingController) {
     this.id = this.activatedRoute.snapshot.paramMap.get('produto');
     this.obterProduto();
     this.form();
@@ -40,6 +41,7 @@ export class ProdutoViewPage implements OnInit {
   }
 
   ngOnInit() {
+    this.obterProduto();
   }
 
 
@@ -59,6 +61,8 @@ export class ProdutoViewPage implements OnInit {
     ref.doc(this.id).set(this.formGroup.value)
     .then(()=>{
       this.toast('Atualizado com Sucesso');
+      this.router.navigate(['/lista-de-produto']);
+      this.loadingController.dismiss();
     }).catch(()=>{
       this.toast('Erro ao Atualizar');
     })
