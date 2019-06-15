@@ -1,8 +1,11 @@
+import { Pedido } from './../model/pedido';
+import { StorageService } from './../service/storage.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IonContent, LoadingController } from '@ionic/angular';
 import { Produto } from '../model/produto';
 import * as firebase from 'firebase';
+import { Item } from '../model/item';
 
 @Component({
   selector: 'app-index',
@@ -14,9 +17,16 @@ export class IndexPage implements OnInit {
   listaDeProdutos: Produto[] = [];
   id: string;
 
+  firestore = firebase.firestore();
+  settings = {timestampsInSnapshots: true};
+
+  pedido : Pedido = new Pedido();
+  
+
 
   constructor(public loadingController: LoadingController,
-              public router : Router) { }
+              public router : Router,
+              public storageServ : StorageService) { }
 
   ngOnInit() {
     this.getList();
@@ -55,4 +65,28 @@ export class IndexPage implements OnInit {
       this.loadingController.dismiss();
     });
   };
+
+  addCarrinho(produto : Produto){
+    this.pedido = this.storageServ.getCart();
+    let add = true;
+
+    let i = new Item();
+    i.produto = produto;
+    i.quantidade = 1;
+
+    if(this.pedido==null){ // Caso pedido esteja vazio
+      this.pedido = new Pedido(); //cria umm novo pedido  
+      this.pedido.itens = []; //cria uma lista de itens
+    }
+
+    this.pedido.itens.forEach(p => {
+      if(p.produto.id == produto.id){
+        add = false;
+      }
+    });
+
+    if(add==true) this.pedido.itens.push(i);
+
+    this.storageServ.setCart(this.pedido);
+  }
 }

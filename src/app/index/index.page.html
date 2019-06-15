@@ -1,7 +1,9 @@
 <ion-header>
   <ion-toolbar>
     <ion-icon name="menu" size="large" id="menu"></ion-icon>
-    <ion-icon name="cart" size="large" id="market" (click)="carrinho()"></ion-icon>
+    <div>
+      <ion-icon name="cart" size="large" id="market" (click)="carrinho()"></ion-icon>
+    </div>  
     <img src="../../assets/img/Logo.png" height="100" width="100" class="icon">
   </ion-toolbar>
 </ion-header>
@@ -45,6 +47,40 @@
     <ion-icon name="information-circle" slot="end"></ion-icon>
   </ion-item>
 -->
+
+<ion-fab vertical="top" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="cart"></ion-icon>
+      <ion-badge color="primary">{{pedido.itens.length}}</ion-badge>
+    </ion-fab-button>
+  </ion-fab>
+
+    <ion-slides pager="true">
+      <ion-slide>
+          <ion-tab-button tab="schedule">
+              <img src="../../assets/img/tshirt.png" width="100px" height="100px" />
+              <!--<ion-icon name="calendar"></ion-icon>-->
+              <ion-label>Camisa</ion-label>
+              <ion-tab-button tab="schedule">
+                  <img src="../../assets/img/tshirt.png" width="100px" height="100px" />
+                  <!--<ion-icon name="calendar"></ion-icon>-->
+                  <ion-label>Camisa</ion-label>
+                </ion-tab-button>
+                <ion-tab-button tab="schedule">
+                    <img src="../../assets/img/tshirt.png" width="100px" height="100px" />
+                    <!--<ion-icon name="calendar"></ion-icon>-->
+                    <ion-label>Camisa</ion-label>
+                  </ion-tab-button>
+            </ion-tab-button>
+      </ion-slide>
+      <ion-slide>
+          Um slide simples
+        </ion-slide>
+        <ion-slide>
+            Um slide simples
+        </ion-slide>
+    </ion-slides>
+
 
   <ion-grid>
     <ion-row>
@@ -97,7 +133,7 @@
       <p>{{produto?.descricao}}</p>
       <p>{{produto?.categoria}}</p>
     </ion-card-content>
-    <ion-button fill="outline" slot="end">Adicionar</ion-button>
+    <ion-button fill="outline" slot="end" (click)="addCarrinho(produto)" >Adicionar</ion-button>
   </ion-card>
 
   <!-- fab placed in the center of the content with a list on each side -->
