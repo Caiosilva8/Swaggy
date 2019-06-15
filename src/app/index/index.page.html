@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
     <ion-icon name="menu" size="large" id="menu"></ion-icon>
-    <ion-icon name="cart" size="large" id="market"></ion-icon>
+    <ion-icon name="cart" size="large" id="market" (click)="carrinho()"></ion-icon>
     <img src="../../assets/img/Logo.png" height="100" width="100" class="icon">
   </ion-toolbar>
 </ion-header>
@@ -20,7 +20,7 @@
     </ion-slide>
   </ion-slides>
 
-  <ion-list>
+  <!-- <ion-list>
       <ion-item>
         <ion-label>Pokémon Yellow</ion-label>
       </ion-item>
@@ -44,15 +44,58 @@
     </ion-label>
     <ion-icon name="information-circle" slot="end"></ion-icon>
   </ion-item>
+-->
 
-  <ion-card *ngFor="let item of [].constructor(5)">
+  <ion-grid>
+    <ion-row>
+          <ion-tab-button tab="schedule">
+            <img src="../../assets/img/tshirt.png" width="100px" height="100px" />
+            <!--<ion-icon name="calendar"></ion-icon>-->
+            <ion-label>Camisa</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="speakers">
+            <img src="../../assets/img/shoe.png" width="100px" height="100px" />
+            <ion-label>Tênis</ion-label>
+            </ion-tab-button>
+          <ion-tab-button tab="speakers">
+            <img src="../../assets/img/cap.png" width="100px" height="100px" />
+            <ion-label>Bonés</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="speakers">
+            <img src="../../assets/img/1826099.png" width="100px" height="100px" />
+            <ion-label>Bonés</ion-label>
+          </ion-tab-button>
+    </ion-row>
+  </ion-grid>
+
+  <ion-item class="select">
+    <ion-label>
+      <ion-tabs>
+        <ion-tab-bar slot="bottom">
+
+          <ion-tab-button tab="speakers">
+            <ion-icon name="contacts"></ion-icon>
+            <ion-label>Calça</ion-label>
+          </ion-tab-button>
+          <ion-tab-button tab="map">
+            <ion-icon name="map"></ion-icon>
+            <ion-label>Acessorios</ion-label>
+          </ion-tab-button>
+        </ion-tab-bar>
+      </ion-tabs>
+    </ion-label>
+
+  </ion-item>
+
+  <ion-card *ngFor="let produto of listaDeProdutos">
     <ion-card-header>
-      <img src="../../assets/img/lançamento2.jpg" class="aa">
-      <ion-card-title>Tênis Oakley</ion-card-title>
+      <img src="{{produto?.foto}}" class="aa">
+      <ion-card-title>{{produto?.nomeProduto}}</ion-card-title>
+      <ion-card-subtitle>R$ {{produto?.preco}}</ion-card-subtitle>
     </ion-card-header>
     <ion-card-content>
-      Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods.
-      Wash your spirit clean.
+      <p>{{produto?.descricao}}</p>
+      <p>{{produto?.categoria}}</p>
     </ion-card-content>
     <ion-button fill="outline" slot="end">Adicionar</ion-button>
   </ion-card>
@@ -63,10 +106,16 @@
       <ion-icon name="share"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-        <ion-fab-button><ion-icon name="logo-facebook"></ion-icon></ion-fab-button>
-        <ion-fab-button><ion-icon name="logo-instagram"></ion-icon></ion-fab-button>
-        <ion-fab-button><ion-icon name="logo-twitter"></ion-icon></ion-fab-button>
-      </ion-fab-list>
+      <ion-fab-button>
+        <ion-icon name="logo-facebook"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button>
+        <ion-icon name="logo-twitter"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
   </ion-fab>
 
   <ion-footer>

@@ -26,6 +26,8 @@ export class ProdutoViewPage implements OnInit {
               public nav : NavController,
               public toastController : ToastController,
               public loadingController : LoadingController) {
+
+
     this.id = this.activatedRoute.snapshot.paramMap.get('produto');
     this.obterProduto();
     this.form();
@@ -42,15 +44,18 @@ export class ProdutoViewPage implements OnInit {
 
   ngOnInit() {
     this.obterProduto();
+    
   }
 
 
   obterProduto(){
     var ref = firebase.firestore().collection("produto").doc(this.id);
     ref.get().then(doc=>{
+      this.produto.id = doc.id;
       this.produto.setDados(doc.data());
       this.form();
       console.log(doc.data());
+      this.downloadFoto();
     }).catch(function(error){
       console.log("Error getting document:", error);
     });
@@ -81,11 +86,13 @@ export class ProdutoViewPage implements OnInit {
   }
 
   downloadFoto(){
+
+    console.log(this.produto.id);
     let ref = firebase.storage().ref()
       .child(`produtos/${this.produto.id}.jpg`);
 
     ref.getDownloadURL().then(url=> {
-      this.imagem.url;
+      this.imagem = url;
     })
   }
 

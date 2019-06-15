@@ -4,6 +4,7 @@ export class Produto {
     preco : string;
     categoria : string;
     descricao : string;
+    foto : String;
 
 
 setDados(obj : any){

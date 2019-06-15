@@ -20,9 +20,8 @@ var ProdutoViewPageModule = /** @class */ (function () {
                 CommonModule,
                 FormsModule,
                 IonicModule,
-                ReactiveFormsModule,
-                ProdutoViewPage,
-                RouterModule.forChild(routes)
+                RouterModule.forChild(routes),
+                ReactiveFormsModule
             ],
             declarations: [ProdutoViewPage]
         })

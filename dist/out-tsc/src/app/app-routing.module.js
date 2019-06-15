@@ -23,8 +23,9 @@ var routes = [
     { path: 'produto', loadChildren: './produto/produto.module#ProdutoPageModule' },
     { path: 'cadastro-de-produtos', loadChildren: './cadastro-de-produtos/cadastro-de-produtos.module#CadastroDeProdutosPageModule' },
     { path: 'lista-de-produtos', loadChildren: './lista-de-produtos/lista-de-produtos.module#ListaDeProdutosPageModule' },
-    { path: 'produto-view', loadChildren: './produto-view/produto-view.module#ProdutoViewPageModule' },
-    { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' }
+    { path: 'carrinho', loadChildren: './carrinho/carrinho.module#CarrinhoPageModule' },
+    { path: 'cliente-view', loadChildren: './cliente-view/cliente-view.module#ClienteViewPageModule' },
+    { path: 'produto-view', loadChildren: './produto-view/produto-view.module#ProdutoViewPageModule' }
 ];
 var AppRoutingModule = /** @class */ (function () {
     function AppRoutingModule() {

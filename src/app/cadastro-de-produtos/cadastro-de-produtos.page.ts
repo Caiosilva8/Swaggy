@@ -35,7 +35,7 @@ export class CadastroDeProdutosPage implements OnInit {
   cadastrar(){
 
     this.loading();
-    let ref = this.firestore.collection('Produto')
+    let ref = this.firestore.collection('produto')
     ref.add(this.formGroup.value)
     .then(err=>{
       this.toast('Cadastrado com Sucesso');

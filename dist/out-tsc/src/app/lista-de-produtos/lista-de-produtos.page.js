@@ -45,13 +45,16 @@ var ListaDeProdutosPage = /** @class */ (function () {
     ListaDeProdutosPage.prototype.getList = function () {
         var _this = this;
         this.loading();
-        var ref = firebase.firestore().collection("Produto");
+        var ref = firebase.firestore().collection("produto");
         ref.get().then(function (query) {
             query.forEach(function (doc) {
                 var c = new Produto();
                 c.setDados(doc.data());
                 c.id = doc.id;
-                _this.listaDeProdutos.push(c);
+                var ref = firebase.storage().ref().child("produtos/" + doc.id + ".jpg").getDownloadURL().then(function (url) {
+                    c.foto = url;
+                    _this.listaDeProdutos.push(c);
+                });
             });
             console.log(_this.listaDeProdutos);
             _this.loadingController.dismiss();

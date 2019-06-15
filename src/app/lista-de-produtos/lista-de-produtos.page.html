@@ -19,6 +19,7 @@
 
   <ion-card *ngFor="let produto of listaDeProdutos">
     <ion-card-header>
+        <img src="{{produto?.foto}}">
       <ion-card-title>{{produto?.nomeProduto}}</ion-card-title>
       <ion-card-subtitle>R$ {{produto?.preco}}</ion-card-subtitle>
     </ion-card-header>
@@ -27,7 +28,8 @@
       <p>{{produto?.categoria}}</p>
     </ion-card-content>
    
-    <ion-icon name="share-alt" size="large" (click)="atualizar(produto)"></ion-icon>
-    
+    <ion-icon name="share-alt" size="large" (click)="atualizar(produto)"></ion-icon> 
+    <ion-icon name="trash"  size="large" (click)="remove(produto)"></ion-icon>
+    <ion-icon name="cart"  size="large" (click)="addCarrinho(produto)"></ion-icon>
   </ion-card>
 </ion-content>
